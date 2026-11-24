@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "generated": "2026-11-22",
+  "policy": "Cada artefacto se descarga solo si su SHA-256 coincide con el fijado aqu\u00ed. Las sumas se cruzaron entre el fichero de checksums del proyecto y el digest de GitHub.",
+  "tools": {
+    "nuclei": {
+      "version": "3.11.1",
+      "license": "MIT",
+      "source": "https://github.com/projectdiscovery/nuclei",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/projectdiscovery/nuclei/releases/download/v3.11.1/nuclei_3.11.1_windows_amd64.zip",
+          "sha256": "bb6cb9ff8939b753f6fcab06fd30a15f5bc61d8382a597871334c007a85ff9d2",
+          "size": 46067128,
+          "binary": "nuclei.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/projectdiscovery/nuclei/releases/download/v3.11.1/nuclei_3.11.1_linux_amd64.zip",
+          "sha256": "ea63d4ae232808cd7c6bc00d0142428e231fab59dae01042246097d195835ab6",
+          "size": 46148343,
+          "binary": "nuclei",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "trivy": {
+      "version": "0.76.2",
+      "license": "Apache-2.0",
+      "source": "https://github.com/aquasecurity/trivy",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_windows-64bit.zip",
+          "sha256": "691f737a7e5566a673c3a74dab9160552ec32101e953b659e5c77443d16dddb6",
+          "size": 53905616,
+          "binary": "trivy.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.tar.gz",
+          "sha256": "bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf",
+          "size": 52714130,
+          "binary": "trivy",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "gitleaks": {
+      "version": "8.30.1",
+      "license": "MIT",
+      "source": "https://github.com/gitleaks/gitleaks",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_windows_x64.zip",
+          "sha256": "d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e",
+          "size": 8438883,
+          "binary": "gitleaks.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz",
+          "sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+          "size": 8230402,
+          "binary": "gitleaks",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "betterleaks": {
+      "version": "1.10.1",
+      "license": "MIT",
+      "source": "https://github.com/betterleaks/betterleaks",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/betterleaks/betterleaks/releases/download/v1.10.1/betterleaks_1.10.1_windows_x64.zip",
+          "sha256": "53d4b37635a999992fb8e1d79f8215279315cbb3b4139314289b69407e79143d",
+          "size": 10558604,
+          "binary": "betterleaks.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/betterleaks/betterleaks/releases/download/v1.10.1/betterleaks_1.10.1_linux_x64.tar.gz",
+          "sha256": "c174b42d7aa60caf58c0c3e555c0e4bed01fe6b0d99a412bce777b5af4ce913e",
+          "size": 10305498,
+          "binary": "betterleaks",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "subfinder": {
+      "version": "2.17.0",
+      "license": "MIT",
+      "source": "https://github.com/projectdiscovery/subfinder",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/projectdiscovery/subfinder/releases/download/v2.17.0/subfinder_2.17.0_windows_amd64.zip",
+          "sha256": "a3fd612928d591fb31c1e59a2e06055e364421ba32251e553073f5673a2d3103",
+          "size": 10578907,
+          "binary": "subfinder.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/projectdiscovery/subfinder/releases/download/v2.17.0/subfinder_2.17.0_linux_amd64.zip",
+          "sha256": "a39c3e5c7a26ef3c430915c4d6cbf7716a00f26769a75e9405aba796142eba37",
+          "size": 10308162,
+          "binary": "subfinder",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "ffuf": {
+      "version": "2.3.0",
+      "license": "MIT",
+      "source": "https://github.com/ffuf/ffuf",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/ffuf/ffuf/releases/download/v2.3.0/ffuf_2.3.0_windows_amd64.zip",
+          "sha256": "091c8a22d0c7fbe07d343b3ae2c213dbd37b38a8a2ed40631fcd3128ea1764fb",
+          "size": 4497208,
+          "binary": "ffuf.exe",
+          "verified_by": "checksums+github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/ffuf/ffuf/releases/download/v2.3.0/ffuf_2.3.0_linux_amd64.tar.gz",
+          "sha256": "b2a3c725fcb9da175159682f54d6e9149f2905b00d84d155e7efc5d599975ceb",
+          "size": 4367536,
+          "binary": "ffuf",
+          "verified_by": "checksums+github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "opengrep": {
+      "version": "1.33.1",
+      "license": "LGPL-2.1",
+      "source": "https://github.com/opengrep/opengrep",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/opengrep/opengrep/releases/download/v1.33.1/opengrep_windows_x86.exe",
+          "sha256": "132e606e071bdd3928286fddc893198a6106a90820d46e21197e0ace1a23e0c1",
+          "size": 53680128,
+          "binary": "opengrep.exe",
+          "verified_by": "github-digest"
+        },
+        "linux-amd64": {
+          "url": "https://github.com/opengrep/opengrep/releases/download/v1.33.1/opengrep_manylinux_x86",
+          "sha256": "46e8133cc490f9f50518061590ce2f6be5a08afaeda034471c0ceda4b3899808",
+          "size": 46517648,
+          "binary": "opengrep",
+          "verified_by": "github-digest"
+        }
+      },
+      "kind": "binary"
+    },
+    "jre": {
+      "version": "21.0.13.1+2",
+      "license": "GPL-2.0 with Classpath Exception",
+      "kind": "archive",
+      "source": "https://adoptium.net",
+      "purpose": "Runtime Java para ZAP",
+      "platforms": {
+        "windows-amd64": {
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jre_x64_windows_hotspot_21.0.13.1_2.zip",
+          "sha256": "e15ee1e54a5a3b38027a09cedfa87bc3348d7dd3ce50866dd3d9671d7fffc6c1",
+          "size": 49108427,
+          "binary": "java.exe",
+          "verified_by": "adoptium-api+github-digest"
+        }
+      }
+    },
+    "zap": {
+      "version": "2.17.0",
+      "license": "Apache-2.0",
+      "kind": "archive",
+      "source": "https://github.com/zaproxy/zaproxy",
+      "platforms": {
+        "any": {
+          "url": "https://github.com/zaproxy/zaproxy/releases/download/v2.17.0/ZAP_2.17.0_Crossplatform.zip",
+          "sha256": "94c8f767b1c2e94f0db66b3ae56514d5e3f5a728ee1b6c798e0c8fe2d61fbff0",
+          "size": 286652857,
+          "binary": "zap-2.17.0.jar",
+          "verified_by": "release-notes+github-digest"
+        }
+      }
+    },
+    "nuclei-templates": {
+      "version": "10.5.2",
+      "license": "MIT",
+      "kind": "git",
+      "source": "https://github.com/projectdiscovery/nuclei-templates",
+      "git": {
+        "url": "https://github.com/projectdiscovery/nuclei-templates",
+        "tag": "v10.5.2",
+        "commit": "5442582a875f96887bfe403c6de562de460897e7"
+      }
+    },
+    "testssl": {
+      "version": "3.2.5",
+      "license": "GPL-2.0",
+      "kind": "git",
+      "source": "https://github.com/testssl/testssl.sh",
+      "git": {
+        "url": "https://github.com/testssl/testssl.sh",
+        "tag": "v3.2.5",
+        "commit": "4f17be931a9d60f3f987975aea8221f1a8eaf7aa"
+      },
+      "binary": "testssl.sh"
+    }
+  }
+}

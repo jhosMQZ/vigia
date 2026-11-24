@@ -1,0 +1,2 @@
+# Los .bat se guardan con CRLF tal cual (cmd.exe los necesita así)
+*.bat -text

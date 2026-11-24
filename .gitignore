@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+node_modules/
+frontend/dist/
+data/
+backend/data/
+tools/bin/
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+!.env.example
+*.log
+tools/py/
+tools/data/
+frontend/node_modules/
+.coverage
+!lab/**/.env
+
+# Navegadores descargados por Playwright (vigia tools install browser) y temporales
+tools/playwright/
+.playwright-*/
+playwright-artifacts-*/
+# Marcas locales de permisos del AppContainer
+tools/.appcontainer-*.granted
+# Artefactos de compilación de TypeScript
+*.tsbuildinfo

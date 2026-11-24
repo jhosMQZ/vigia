@@ -1,0 +1,206 @@
+# Reglas propias de Vigía para Opengrep/Semgrep (licencia del proyecto, Apache-2.0).
+# Modo taint: flujo de datos desde la petición HTTP hasta sumideros peligrosos (intra e interprocedural en el fichero).
+rules:
+  - id: vigia-py-sqli
+    languages: [python]
+    severity: ERROR
+    message: Datos de la petición llegan a una consulta SQL construida dinámicamente.
+    metadata: {cwe: "CWE-89", vigia_category: sast_sqli}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: flask.request.$A
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+          - pattern: request.get_json(...)
+    pattern-sanitizers:
+      - pattern-either:
+          - pattern: int(...)
+          - pattern: float(...)
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: $C.execute($Q, ...)
+              - pattern: $C.executemany($Q, ...)
+              - pattern: $C.executescript($Q)
+              - pattern: $M.objects.raw($Q, ...)
+          - focus-metavariable: $Q
+  - id: vigia-py-cmdi
+    languages: [python]
+    severity: ERROR
+    message: Datos de la petición llegan a la ejecución de comandos del sistema.
+    metadata: {cwe: "CWE-78", vigia_category: sast_cmdi}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+          - pattern: flask.request.$A
+    pattern-sinks:
+      - pattern-either:
+          - pattern: os.system(...)
+          - pattern: os.popen(...)
+          - pattern: subprocess.$F(..., shell=True, ...)
+  - id: vigia-py-ssrf
+    languages: [python]
+    severity: WARNING
+    message: Datos de la petición determinan el destino de una petición saliente (SSRF).
+    metadata: {cwe: "CWE-918", vigia_category: sast_ssrf}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+    pattern-sinks:
+      - pattern-either:
+          - pattern: requests.$M($URL, ...)
+          - pattern: httpx.$M($URL, ...)
+          - pattern: urllib.request.urlopen($URL, ...)
+  - id: vigia-py-path
+    languages: [python]
+    severity: WARNING
+    message: Datos de la petición forman una ruta de fichero (path traversal).
+    metadata: {cwe: "CWE-22", vigia_category: sast_path_traversal}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+    pattern-sanitizers:
+      - pattern: werkzeug.utils.secure_filename(...)
+      - pattern: os.path.basename(...)
+    pattern-sinks:
+      - pattern-either:
+          - pattern: open(...)
+          - pattern: flask.send_file(...)
+          - pattern: send_file(...)
+  - id: vigia-py-ssti
+    languages: [python]
+    severity: ERROR
+    message: Datos de la petición se usan como plantilla (SSTI).
+    metadata: {cwe: "CWE-1336", vigia_category: sast_template_injection}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+    pattern-sinks:
+      - pattern-either:
+          - pattern: flask.render_template_string(...)
+          - pattern: render_template_string(...)
+          - pattern: jinja2.Template(...)
+  - id: vigia-py-redirect
+    languages: [python]
+    severity: WARNING
+    message: Datos de la petición determinan una redirección (open redirect).
+    metadata: {cwe: "CWE-601", vigia_category: sast_open_redirect}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.$A.get(...)
+          - pattern: request.$A[...]
+    pattern-sinks:
+      - pattern-either:
+          - pattern: flask.redirect(...)
+          - pattern: redirect(...)
+  - id: vigia-js-sqli
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Datos de la petición llegan a una consulta SQL construida con cadenas.
+    metadata: {cwe: "CWE-89", vigia_category: sast_sqli}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: $DB.query($Q, ...)
+              - pattern: $DB.execute($Q, ...)
+              - pattern: $DB.raw($Q, ...)
+          - focus-metavariable: $Q
+          - pattern-not: '"..."'
+  - id: vigia-js-cmdi
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Datos de la petición llegan a child_process.
+    metadata: {cwe: "CWE-78", vigia_category: sast_cmdi}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - pattern-either:
+          - pattern: child_process.exec(...)
+          - pattern: child_process.execSync(...)
+          - pattern: exec(...)
+          - pattern: execSync(...)
+  - id: vigia-js-xss
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Datos de la petición se envían en la respuesta sin codificar.
+    metadata: {cwe: "CWE-79", vigia_category: sast_xss}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - pattern-either:
+          - pattern: $RES.send(...)
+          - pattern: $RES.write(...)
+  - id: vigia-js-ssrf
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Datos de la petición determinan una petición saliente (SSRF).
+    metadata: {cwe: "CWE-918", vigia_category: sast_ssrf}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - pattern-either:
+          - pattern: fetch(...)
+          - pattern: axios.$M(...)
+          - pattern: axios(...)
+          - pattern: http.get(...)
+          - pattern: https.get(...)
+  - id: vigia-js-path
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Datos de la petición forman una ruta de fichero.
+    metadata: {cwe: "CWE-22", vigia_category: sast_path_traversal}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - pattern-either:
+          - pattern: fs.readFile(...)
+          - pattern: fs.readFileSync(...)
+          - pattern: fs.createReadStream(...)
+          - pattern: $RES.sendFile(...)
+  - id: vigia-js-eval
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Datos de la petición llegan a eval/Function.
+    metadata: {cwe: "CWE-95", vigia_category: sast_code_injection}
+    mode: taint
+    pattern-sources:
+      - pattern-either:
+          - pattern: $REQ.query
+          - pattern: $REQ.body
+          - pattern: $REQ.params
+    pattern-sinks:
+      - pattern-either:
+          - pattern: eval(...)
+          - pattern: new Function(...)

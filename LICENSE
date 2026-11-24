@@ -1,0 +1,130 @@
+LICENCIA DE USO NO COMERCIAL DE VIGÍA
+Versión 1.0 (2026)
+
+Copyright (c) 2026 jhosMQZ (https://github.com/jhosMQZ)
+Todos los derechos reservados, salvo los que esta licencia concede de forma expresa.
+
+Vigía se publica como código fuente disponible bajo condiciones de uso no
+comercial. Esta licencia NO es una licencia de código abierto aprobada por la
+Open Source Initiative (OSI) y no debe presentarse como tal.
+
+
+1. DEFINICIONES
+
+  «Software»: el código fuente, los archivos de configuración, las imágenes y
+  los demás materiales de este repositorio, y cualquier copia o versión
+  derivada de ellos.
+
+  «Titular»: la persona que figura en el aviso de copyright, titular de los
+  derechos de propiedad intelectual sobre el Software.
+
+  «Usted»: la persona que obtiene, usa, modifica o comparte el Software.
+
+  «Uso comercial»: cualquier uso que tenga por objeto o por efecto obtener
+  una ventaja comercial o una compensación económica, directa o indirecta.
+  Entre otros: vender, alquilar o licenciar el Software; ofrecerlo como
+  servicio (incluido el software como servicio o el acceso remoto);
+  incorporarlo, total o parcialmente, a un producto o servicio comercial;
+  usarlo para prestar servicios remunerados a terceros; o usarlo en la
+  actividad de una empresa u organización con ánimo de lucro.
+
+
+2. LO QUE SE PERMITE
+
+  El Titular le concede una licencia gratuita, mundial, no exclusiva,
+  intransferible y no sublicenciable para:
+
+  a) consultar y estudiar el código fuente;
+  b) ejecutar el Software para uso personal no comercial, para formación o
+     para investigación sin ánimo de lucro;
+  c) modificar el Software para esos mismos fines;
+  d) compartir copias del Software, modificadas o no, siempre que sea de
+     forma gratuita y sin fines comerciales, incluyendo una copia íntegra de
+     esta licencia, conservando el aviso de copyright y la atribución de
+     autoría e indicando claramente qué se ha modificado.
+
+
+3. LO QUE NO SE PERMITE SIN AUTORIZACIÓN
+
+  Sin la autorización indicada en el apartado 4, no puede:
+
+  a) vender el Software ni copias de él;
+  b) ofrecer el Software como servicio comercial;
+  c) incorporar el Software, total o parcialmente, a productos o servicios
+     comerciales;
+  d) redistribuir versiones modificadas, empaquetadas o integradas en otros
+     productos para obtener beneficios comerciales;
+  e) realizar cualquier otro uso comercial;
+  f) eliminar o alterar el aviso de copyright, esta licencia o la atribución
+     de autoría;
+  g) sublicenciar el Software o presentar como propia su autoría.
+
+
+4. USO COMERCIAL
+
+  Cualquier uso comercial requiere una autorización previa, expresa y por
+  escrito del Titular. Si quiere comercializar el Software o usarlo con fines
+  comerciales, contacte con el Titular para negociar una autorización o una
+  licencia comercial:
+
+  - Perfil de GitHub del Titular: https://github.com/jhosMQZ
+  - O bien abriendo un issue en https://github.com/jhosMQZ/vigia/issues
+    con el título «Solicitud de licencia comercial».
+
+  La falta de respuesta no equivale a autorización.
+
+
+5. PROPIEDAD INTELECTUAL Y AUTORÍA
+
+  La publicación del código fuente no transfiere la propiedad intelectual ni
+  ningún derecho distinto de los concedidos expresamente en esta licencia.
+  El Titular conserva todos los derechos no concedidos. El nombre «Vigía»
+  aplicado a este Software y su presentación visual no se licencian para
+  identificar otros productos o servicios.
+
+
+6. USO LEGAL Y AUTORIZADO
+
+  El Software sirve para analizar la seguridad de sistemas. Solo puede usarse
+  sobre sistemas propios o con la autorización expresa de su titular, y de
+  acuerdo con la legislación aplicable. Usted es el único responsable del uso
+  que haga del Software.
+
+
+7. COMPONENTES DE TERCEROS
+
+  Las dependencias y las herramientas externas que el Software puede
+  descargar o ejecutar se rigen por sus propias licencias. Esta licencia no se
+  aplica a ellas ni las modifica.
+
+
+8. AUSENCIA DE GARANTÍAS
+
+  EL SOFTWARE SE PROPORCIONA «TAL CUAL», SIN GARANTÍAS DE NINGÚN TIPO,
+  EXPRESAS O IMPLÍCITAS, INCLUIDAS LAS DE COMERCIABILIDAD, IDONEIDAD PARA UN
+  FIN DETERMINADO Y NO INFRACCIÓN. El Software está en desarrollo y no ha
+  pasado una revisión de seguridad independiente.
+
+
+9. LIMITACIÓN DE RESPONSABILIDAD
+
+  En la medida máxima permitida por la ley, el Titular no será responsable de
+  ningún daño o perjuicio, directo o indirecto, derivado del uso o de la
+  imposibilidad de uso del Software.
+
+
+10. TERMINACIÓN
+
+  Esta licencia termina automáticamente si incumple cualquiera de sus
+  condiciones. En ese caso debe dejar de usar el Software y destruir las
+  copias que tenga, salvo que el Titular le autorice otra cosa por escrito.
+
+
+11. OTRAS DISPOSICIONES
+
+  Si alguna cláusula resultara inválida o inaplicable, las demás seguirán
+  vigentes. Esta licencia se ha redactado en español; las traducciones
+  tienen solo carácter informativo.
+
+  Nota: esta es una licencia personalizada. Se recomienda una revisión
+  jurídica para confirmar su aplicabilidad en las jurisdicciones pertinentes.
